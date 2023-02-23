@@ -123,7 +123,7 @@ class ht_vol:
 	def rescale_img(self):
 		toSize = self.voxelSize / self.zoom * 1000. # convert to nm
 		print("Rescaling to " + str(toSize) + " nm pixel/voxel size.")
-		self.pi.scale(self.new, self.pi_img)
+		self.pi.scale(self.new, self.pi_img, [0,0,0], False, "Nearest")
 		self.new = self.pi_img.get_data()
 		self.saveFile += "_rescaled_"+str(int(toSize)) + "nm"
 		
